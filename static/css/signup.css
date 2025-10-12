@@ -1,0 +1,126 @@
+/* Full screen background */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Background container */
+.signup-page {
+    height: 100%;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-right: 120px;
+    box-sizing: border-box;
+}
+
+/* Signup box */
+.signup-form-container {
+    background: rgba(255, 255, 255, 0.96);
+    width: 250px;
+    padding: 45px 30px;
+    padding-right: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.signup-form-container h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+}
+
+/* Labels */
+.signup-form-container label {
+    align-self: flex-start;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Inputs */
+.signup-form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+
+/* Button */
+.signup-form-container button {
+    width: 100%;
+    padding: 12px;
+    margin-left: 0; /* remove extra left margin for multi-step */
+    background-color: #4391e4;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form-container button:hover {
+    background-color: #0b7df7;
+}
+
+/* Multi-step form */
+.form-step {
+    display: none;
+}
+.form-step.active {
+    display: block;
+}
+
+/* Navigation buttons inside form steps */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.form-navigation button {
+    width: 48%;
+}
+
+/* Signup text below form */
+.signup-text {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px 0;
+  font-size: 15px;
+  color: #242222;
+}
+.signup-text a {
+  color: #4391e4;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+  transition: color 0.2s ease-in-out;
+}
+.signup-text a:hover {
+  color: #0b7df7;
+  text-decoration: underline;
+}
+
+/* Responsive fix */
+@media (max-width: 900px) {
+    .signup-page {
+        justify-content: center;
+        padding-right: 0;
+    }
+}

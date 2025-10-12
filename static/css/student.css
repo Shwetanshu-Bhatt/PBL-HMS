@@ -1,0 +1,198 @@
+/* Full layout setup */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Background and layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    backdrop-filter: blur(6px);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 18px 0;
+}
+
+.sidebar ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background: #4391e4;
+    color: #fff;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.94);
+    padding: 40px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #333;
+}
+
+header p {
+    color: #666;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Dashboard cards */
+.dashboard-widgets {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card {
+    flex: 1;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin: 0;
+    color: #4391e4;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #333;
+    font-size: 15px;
+}
+
+/* Recent Activity */
+.recent-activity {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.recent-activity h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.recent-activity ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    color: #333;
+}
+
+.recent-activity li {
+    margin-bottom: 8px;
+}
+
+/* Scrollbar Styling */
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar ul li {
+        margin: 5px 10px;
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .dashboard-widgets {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Admin Panel</h2>
+            <button class="toggle-btn"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav>
+            <a href="#hostels"><i class="fas fa-building"></i> <span class="nav-text">Hostels</span></a>
+            <a href="#requests"><i class="fas fa-user-check"></i> <span class="nav-text">Student Requests</span></a>
+            <a href="{{ url_for('admin.logs') }}"><i class="fas fa-file-alt"></i> <span class="nav-text">Logs</span></a>
+            <a href="{{ url_for('auth.login') }}"><i class="fas fa-sign-out-alt"></i> <span class="nav-text">Logout</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <h1>Dashboard</h1>
+            <div class="profile">
+                <span>Admin</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+
+        <!-- Cards Section -->
+        <section class="cards-section" id="hostels">
+            <h2>Hostels</h2>
+            <div class="cards">
+                {% for hostel in hostels %}
+                <div class="card">
+                    <h3>{{ hostel.name }}</h3>
+                    <p>Total Rooms: <strong>{{ hostel.rooms }}</strong></p>
+                    <p>Available: <strong>{{ hostel.available }}</strong></p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Requests Table Section -->
+        <section class="table-section" id="requests">
+            <h2>Student Requests</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Request</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for req in requests %}
+                    <tr>
+                        <td>{{ req.student }}</td>
+                        <td>{{ req.request }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+
+<script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+        if(sidebar.classList.contains('collapsed')) {
+            mainContent.style.marginLeft = '70px'; // collapsed width
+        } else {
+            mainContent.style.marginLeft = '220px'; // expanded width
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Management Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="login-page">
+    <div class="login-form-container">
+        <h2>Login</h2>
+
+        <!-- User Type Slider -->
+        <div class="user-type-slider" id="userTypeSlider">
+            <div class="slider-highlight" id="sliderHighlight"></div>
+            <span data-type="student" class="active">Student</span>
+            <span data-type="admin">Admin</span>
+        </div>
+
+        <!-- Login Form -->
+        <form action="{{ url_for('auth.login') }}" method="POST" id="loginForm">
+            <!-- Hidden input for user type -->
+            <input type="hidden" id="hiddenUserType" name="user_type" value="student">
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Signup Link -->
+        <p class="signup-text">
+            Don't have an account? <a href="{{ url_for('auth.signup') }}">SignUp</a>
+        </p>
+    </div>
+</div>
+
+<script>
+const slider = document.getElementById('sliderHighlight');
+const spans = document.querySelectorAll('.user-type-slider span');
+const hiddenInput = document.getElementById('hiddenUserType');
+
+function moveSlider(span) {
+    const rect = span.getBoundingClientRect();
+    const parentRect = span.parentElement.getBoundingClientRect();
+    slider.style.width = rect.width + "px";
+    slider.style.left = (rect.left - parentRect.left) + "px";
+
+    // Update hidden input
+    hiddenInput.value = span.dataset.type;
+}
+
+// Initialize
+const activeSpan = document.querySelector('.user-type-slider span.active');
+moveSlider(activeSpan);
+
+spans.forEach(span => {
+    span.addEventListener('click', () => {
+        spans.forEach(s => s.classList.remove('active'));
+        span.classList.add('active');
+        moveSlider(span);
+    });
+});
+</script>
+</body>
+</html>

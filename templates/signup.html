@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Signup</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+<div class="signup-page">
+  <div class="signup-form-container">
+    <h2>Student Signup</h2>
+
+    <form id="signupForm" method="POST" action="{{ url_for('auth.signup') }}">
+      <!-- STEP 1 -->
+      <div class="form-step active" id="step1">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" required>
+
+        <div class="form-navigation">
+          <button type="button" id="next1">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step" id="step2">
+        <label>Enrollment Number</label>
+        <input type="text" name="enrollment" required>
+
+        <label>Course / Branch</label>
+        <input type="text" name="course" required>
+
+        <label>Year / Semester</label>
+        <input type="text" name="year_sem" required>
+
+        <div class="form-navigation">
+          <button type="button" id="prev2">Previous</button>
+          <button type="button" id="next2">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step" id="step3">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+
+        <label>Address</label>
+        <input type="text" name="address" required>
+
+        <label>Preferred Hostel / Room Type</label>
+        <input type="text" name="hostel_pref" required>
+
+        <div class="form-navigation">
+          <button type="button" id="prev3">Previous</button>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="signup-text">
+      Already have an account?
+      <a href="{{ url_for('auth.login') }}">Login</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const steps = document.querySelectorAll('.form-step');
+  let currentStep = 0;
+
+  document.getElementById('next1').onclick = () => showStep(1);
+  document.getElementById('prev2').onclick = () => showStep(0);
+  document.getElementById('next2').onclick = () => showStep(2);
+  document.getElementById('prev3').onclick = () => showStep(1);
+
+  function showStep(stepIndex) {
+    steps[currentStep].classList.remove('active');
+    steps[stepIndex].classList.add('active');
+    currentStep = stepIndex;
+  }
+</script>
+</body>
+</html>

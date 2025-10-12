@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+</head>
+<body>
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Student Panel</h2>
+        <ul>
+            <li><a href="{{ url_for('student.dashboard') }}" class="active">🏠 Dashboard</a></li>
+            <li><a href="{{ url_for('student.view_hostels') }}">🏢 View Hostels</a></li>
+            <li><a href="{{ url_for('student.my_bookings') }}">🛏 My Bookings</a></li>
+            <li><a href="{{ url_for('student.profile') }}">👤 Profile</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">🚪 Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome, {{ student.name }}</h1>
+            <p>Logged in as: {{ student.email }}</p>
+        </header>
+
+        <section class="dashboard-widgets">
+            <div class="card">
+                <h3>Current Hostel</h3>
+                <p>{{ student.current_hostel or "Not booked yet" }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Room Number</h3>
+                <p>{{ student.room_number or "N/A" }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Payment Status</h3>
+                <p>{{ student.payment_status or "Pending" }}</p>
+            </div>
+        </section>
+
+        <section class="recent-activity">
+            <h2>Recent Activity</h2>
+            {% if activities %}
+                <ul>
+                    {% for activity in activities %}
+                        <li>{{ activity }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No recent activity yet.</p>
+            {% endif %}
+        </section>
+    </div>
+</div>
+</body>
+</html>

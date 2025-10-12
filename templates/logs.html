@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Login Logs{% endblock %}
+{% block content %}
+<h3>Login Logs</h3>
+<pre>
+{% for log in logs %}
+{{ log }}
+{% endfor %}
+</pre>
+{% endblock %}
