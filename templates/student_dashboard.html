@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Dashboard</title>
+    <title>{% block title %}Student Dashboard{% endblock %}</title>
+    <!-- Main student CSS (sidebar, general styles) -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
 <div class="dashboard-container">
@@ -11,16 +14,32 @@
     <div class="sidebar">
         <h2>Student Panel</h2>
         <ul>
-            <li><a href="{{ url_for('student.dashboard') }}" class="active">🏠 Dashboard</a></li>
-            <li><a href="{{ url_for('student.view_hostels') }}">🏢 View Hostels</a></li>
-            <li><a href="{{ url_for('student.my_bookings') }}">🛏 My Bookings</a></li>
-            <li><a href="{{ url_for('student.profile') }}">👤 Profile</a></li>
-            <li><a href="{{ url_for('auth.logout') }}">🚪 Logout</a></li>
+            <li>
+                <a href="{{ url_for('student.dashboard') }}" 
+                   class="{% if active_page == 'dashboard' %}active{% endif %}">🏠 Dashboard</a>
+            </li>
+            <li>
+                <a href="{{ url_for('student.view_hostels') }}" 
+                   class="{% if active_page == 'view_hostels' %}active{% endif %}">🏢 View Hostels</a>
+            </li>
+            <li>
+                <a href="{{ url_for('student.my_requests') }}" 
+                   class="{% if active_page == 'my_requests' %}active{% endif %}">🛏 Requests</a>
+            </li>
+            <li>
+                <a href="{{ url_for('student.profile') }}" 
+                   class="{% if active_page == 'profile' %}active{% endif %}">👤 Profile</a>
+            </li>
+            <li>
+                <a href="{{ url_for('auth.logout') }}">🚪 Logout</a>
+            </li>
         </ul>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+        {% block content %}
+        <!-- Default dashboard content -->
         <header>
             <h1>Welcome, {{ student.name }}</h1>
             <p>Logged in as: {{ student.email }}</p>
@@ -55,6 +74,7 @@
                 <p>No recent activity yet.</p>
             {% endif %}
         </section>
+        {% endblock %}
     </div>
 </div>
 </body>

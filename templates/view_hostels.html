@@ -1,0 +1,77 @@
+{% extends "student_dashboard.html" %}
+
+{% block title %}View Hostels{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/view_hostels.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Available Hostels</h1>
+    <p>Welcome, {{ student.name if student else "Student" }}</p>
+</header>
+
+<!-- Desktop Table View -->
+<section class="hostel-list">
+    {% if hostels %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Hostel Name</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Available Rooms</th>
+                    <th>Contact</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hostel in hostels %}
+                <tr>
+                    <td>{{ hostel.Hostel_Name }}</td>
+                    <td>{{ hostel.Location }}</td>
+                    <td>{{ hostel.Hostel_Type }}</td>
+                    <td>{{ hostel.Available_Rooms }}</td>
+                    <td>
+                        {{ hostel.Contact_Person }}<br>
+                        {{ hostel.Contact_Number }}<br>
+                        {{ hostel.Email }}
+                    </td>
+                    <td>
+                        {% if hostel.Available_Rooms > 0 %}
+                            <a href="{{ url_for('student.view_rooms', hostel_id=hostel.Hostel_ID) }}">View Rooms</a>
+                        {% else %}
+                            Full
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hostels available at the moment.</p>
+    {% endif %}
+</section>
+
+<!-- Mobile Card View -->
+<section class="hostel-cards">
+    {% if hostels %}
+        {% for hostel in hostels %}
+        <div class="hostel-card">
+            <h3>{{ hostel.Hostel_Name }}</h3>
+            <p><strong>Location:</strong> {{ hostel.Location }}</p>
+            <p><strong>Type:</strong> {{ hostel.Hostel_Type }}</p>
+            <p><strong>Available Rooms:</strong> {{ hostel.Available_Rooms }}</p>
+            <p><strong>Contact:</strong> {{ hostel.Contact_Person }}, {{ hostel.Contact_Number }}</p>
+            <p><strong>Email:</strong> {{ hostel.Email }}</p>
+            {% if hostel.Available_Rooms > 0 %}
+            <a href="{{ url_for('student.view_rooms', hostel_id=hostel.Hostel_ID) }}">View Rooms</a>
+            {% else %}
+            <span class="full">Full</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% endif %}
+</section>
+{% endblock %}

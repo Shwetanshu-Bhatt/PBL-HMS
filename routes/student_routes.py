@@ -2,9 +2,6 @@ from flask import Blueprint, render_template
 
 student_bp = Blueprint('student', __name__, url_prefix='/student')
 
-# -----------------------------
-# Student Dashboard
-# -----------------------------
 @student_bp.route('/dashboard')
 def dashboard():
     # TODO: Fetch actual student data from DB
@@ -17,11 +14,6 @@ def dashboard():
     }
     return render_template('student_dashboard.html', student=dummy_data)
 
-
-
-# -----------------------------
-# View Hostels Page
-# -----------------------------
 @student_bp.route('/view_hostels')
 def view_hostels():
     # TODO: Fetch hostel data from the database
@@ -54,14 +46,14 @@ def view_hostels():
 
     return render_template('view_hostels.html', hostels=hostels)
 
-@student_bp.route('/my_bookings')
-def my_bookings():
+@student_bp.route('/my_requests')
+def my_requests():
     # TODO: Fetch actual bookings for student
     bookings = [
         {"hostel": "Everest Hostel", "room": "A-101", "status": "Confirmed"},
         {"hostel": "Himalaya Hostel", "room": "B-202", "status": "Pending"}
     ]
-    return render_template('my_bookings.html', bookings=bookings)
+    return render_template('my_requests.html', bookings=bookings)
 
 @student_bp.route('/profile')
 def profile():
@@ -74,3 +66,8 @@ def profile():
         "payment_status": "Paid"
     }
     return render_template('profile.html', student=student_info)
+
+@student_bp.route('/view_rooms/<int:hostel_id>')
+def view_rooms(hostel_id):
+    # Show rooms for a specific hostel
+    return render_template('view_rooms.html', hostel_id=hostel_id)

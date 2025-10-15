@@ -1,0 +1,148 @@
+/* ---------- Container ---------- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px 40px;
+}
+
+/* ---------- Header ---------- */
+.main-content header {
+    margin-bottom: 25px;
+}
+
+.main-content header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.main-content header p {
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+/* ---------- Hostel Table ---------- */
+.hostel-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hostel-list table th,
+.hostel-list table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.hostel-list table th {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hostel-list table tr:hover {
+    background-color: #f6f8fa;
+    transition: background-color 0.3s;
+}
+
+/* ---------- Action Button ---------- */
+.hostel-list a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.hostel-list a:hover {
+    background-color: #219150;
+}
+
+/* ---------- No hostels message ---------- */
+.hostel-list p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-top: 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    /* Table becomes card-like for mobile */
+    .hostel-list table, 
+    .hostel-list table th, 
+    .hostel-list table td {
+        display: block;
+        width: 100%;
+    }
+
+    .hostel-list table th {
+        display: none;
+    }
+
+    .hostel-list table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ecf0f1;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .hostel-list table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        font-size: 14px;
+        color: #2c3e50;
+    }
+
+    .hostel-list table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: 600;
+        color: #34495e;
+    }
+
+    .hostel-list a {
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+}

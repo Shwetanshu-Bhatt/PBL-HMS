@@ -19,6 +19,20 @@ html, body {
     box-sizing: border-box;
 }
 
+.login-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.login-image img {
+    width: 100%;             /* almost equal to form width, but with small padding */
+    max-width: 240px;       /* optional: limits on large screens */
+    height: auto;
+    object-fit: contain;
+}
+
 /* Login box */
 .login-form-container {
     background: rgba(255, 255, 255, 0.96);
@@ -36,6 +50,7 @@ html, body {
 /* Heading */
 .login-form-container h2 {
     margin-bottom: 25px;
+    margin-top: -px;
     font-size: 28px;
     color: #333;
     text-align: center;

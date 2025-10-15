@@ -1,35 +1,37 @@
-/* Full layout setup */
+/* ---------- Full layout ---------- */
 html, body {
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f2f5;
 }
 
-/* Background and layout */
+/* ---------- Dashboard Container ---------- */
 .dashboard-container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     background: url('../images/background.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
 }
 
-/* Sidebar */
+/* ---------- Sidebar ---------- */
 .sidebar {
     width: 240px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     color: #fff;
-    padding: 25px 15px;
+    padding: 30px 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     backdrop-filter: blur(6px);
+    transition: width 0.3s ease;
 }
 
 .sidebar h2 {
     text-align: center;
-    margin-bottom: 35px;
-    font-size: 22px;
+    margin-bottom: 40px;
+    font-size: 24px;
     font-weight: 600;
     color: #fff;
     border-bottom: 2px solid rgba(255,255,255,0.2);
@@ -51,7 +53,7 @@ html, body {
     text-decoration: none;
     font-weight: 500;
     display: block;
-    padding: 10px 12px;
+    padding: 12px 15px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
@@ -62,16 +64,16 @@ html, body {
     color: #fff;
 }
 
-/* Main content area */
+/* ---------- Main Content ---------- */
 .main-content {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.94);
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.95);
     padding: 40px;
     overflow-y: auto;
     box-sizing: border-box;
 }
 
-/* Header */
+/* ---------- Header ---------- */
 header {
     border-bottom: 2px solid #ddd;
     margin-bottom: 30px;
@@ -80,17 +82,17 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 26px;
-    color: #333;
+    font-size: 28px;
+    color: #2c3e50;
 }
 
 header p {
-    color: #666;
+    color: #7f8c8d;
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
-/* Dashboard cards */
+/* ---------- Dashboard Cards ---------- */
 .dashboard-widgets {
     display: flex;
     gap: 20px;
@@ -104,21 +106,21 @@ header p {
     background: #fff;
     border-radius: 12px;
     padding: 25px 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
 .card h3 {
-    margin: 0;
+    margin: 0 0 10px 0;
     color: #4391e4;
     font-size: 18px;
-    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .card p {
@@ -126,17 +128,17 @@ header p {
     font-size: 15px;
 }
 
-/* Recent Activity */
+/* ---------- Recent Activity ---------- */
 .recent-activity {
     background: #fff;
     padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
 .recent-activity h2 {
     margin-top: 0;
-    color: #333;
+    color: #2c3e50;
     font-size: 20px;
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
@@ -146,14 +148,65 @@ header p {
 .recent-activity ul {
     list-style-type: disc;
     padding-left: 25px;
-    color: #333;
+    color: #34495e;
 }
 
 .recent-activity li {
     margin-bottom: 8px;
 }
 
-/* Scrollbar Styling */
+/* ---------- Hostel Table ---------- */
+.hostel-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hostel-list table th,
+.hostel-list table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.hostel-list table th {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hostel-list table tr:hover {
+    background-color: #f6f8fa;
+    transition: background-color 0.3s;
+}
+
+.hostel-list a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.hostel-list a:hover {
+    background-color: #219150;
+}
+
+.hostel-list p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-top: 20px;
+}
+
+/* ---------- Scrollbar ---------- */
 .main-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -163,8 +216,8 @@ header p {
     border-radius: 10px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 900px) {
     .dashboard-container {
         flex-direction: column;
     }
@@ -194,5 +247,112 @@ header p {
 
     .dashboard-widgets {
         flex-direction: column;
+    }
+
+    /* Table becomes card-like for mobile */
+    .hostel-list table, 
+    .hostel-list table th, 
+    .hostel-list table td {
+        display: block;
+        width: 100%;
+    }
+
+    .hostel-list table th {
+        display: none;
+    }
+
+    .hostel-list table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ecf0f1;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #fff;
+    }
+
+    .hostel-list table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        font-size: 14px;
+        color: #2c3e50;
+    }
+
+    .hostel-list table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: 600;
+        color: #34495e;
+    }
+
+    .hostel-list a {
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Hide mobile cards on desktop */
+.hostel-cards {
+    display: none;
+}
+
+/* Mobile view: show cards, hide table */
+@media screen and (max-width: 768px) {
+    .hostel-list {
+        display: none; /* hide table */
+    }
+
+    .hostel-cards {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .hostel-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .hostel-card h3 {
+        margin-top: 0;
+        color: #3498db;
+    }
+
+    .hostel-card p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #2c3e50;
+    }
+
+    .hostel-card a {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #27ae60;
+        color: #fff;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .hostel-card a:hover {
+        background-color: #219150;
+    }
+
+    .hostel-card .full {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: #e74c3c;
+        color: #fff;
+        border-radius: 6px;
+        font-weight: 500;
     }
 }
