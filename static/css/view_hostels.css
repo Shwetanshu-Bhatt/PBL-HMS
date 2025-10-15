@@ -10,11 +10,13 @@
 .main-content {
     flex-grow: 1;
     padding: 30px 40px;
+    box-sizing: border-box;
 }
 
 /* ---------- Header ---------- */
 .main-content header {
     margin-bottom: 25px;
+    position: fixed;
 }
 
 .main-content header h1 {
@@ -32,11 +34,11 @@
 /* ---------- Hostel Table ---------- */
 .hostel-list table {
     width: 100%;
+    margin-top: 110px;
     border-collapse: collapse;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     border-radius: 10px;
-    overflow: hidden;
 }
 
 .hostel-list table th,
@@ -86,15 +88,6 @@
 @media screen and (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 15px;
-        border-bottom: 2px solid rgba(0,0,0,0.1);
     }
 
     .main-content {

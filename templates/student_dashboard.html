@@ -5,36 +5,49 @@
     <title>{% block title %}Student Dashboard{% endblock %}</title>
     <!-- Main student CSS (sidebar, general styles) -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Page-specific CSS -->
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-<div class="dashboard-container">
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
         <h2>Student Panel</h2>
         <ul>
             <li>
-                <a href="{{ url_for('student.dashboard') }}" 
-                   class="{% if active_page == 'dashboard' %}active{% endif %}">🏠 Dashboard</a>
+                <a href="{{ url_for('student.dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">
+                    <i class="fa-solid fa-grip"></i> Dashboard
+                </a>
             </li>
             <li>
-                <a href="{{ url_for('student.view_hostels') }}" 
-                   class="{% if active_page == 'view_hostels' %}active{% endif %}">🏢 View Hostels</a>
+                <a href="{{ url_for('student.view_hostels') }}" class="{% if active_page == 'view_hostels' %}active{% endif %}">
+                    <i class="fa-solid fa-hotel"></i> View Hostels/Rooms
+                </a>
             </li>
             <li>
-                <a href="{{ url_for('student.my_requests') }}" 
-                   class="{% if active_page == 'my_requests' %}active{% endif %}">🛏 Requests</a>
+                <a href="{{ url_for('student.rules') }}" class="{% if active_page == 'my_requests' %}active{% endif %}">
+                    <i class="fa-solid fa-book-open"></i> Rules
+                </a>
             </li>
             <li>
-                <a href="{{ url_for('student.profile') }}" 
-                   class="{% if active_page == 'profile' %}active{% endif %}">👤 Profile</a>
+                <a href="{{ url_for('student.profile') }}" class="{% if active_page == 'profile' %}active{% endif %}">
+                    <i class="fa-solid fa-address-book"></i> Contact Us
+                </a>
             </li>
             <li>
-                <a href="{{ url_for('auth.logout') }}">🚪 Logout</a>
+                <a href="{{ url_for('student.profile') }}" class="{% if active_page == 'profile' %}active{% endif %}">
+                    <i class="fa-solid fa-user"></i> Profile
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('auth.logout') }}">
+                    <i class="fa-solid fa-sign-out-alt"></i> Logout
+                </a>
             </li>
         </ul>
     </div>
+
 
     <!-- Main Content -->
     <div class="main-content">

@@ -46,14 +46,14 @@ def view_hostels():
 
     return render_template('view_hostels.html', hostels=hostels)
 
-@student_bp.route('/my_requests')
-def my_requests():
+@student_bp.route('/rules')
+def rules():
     # TODO: Fetch actual bookings for student
     bookings = [
         {"hostel": "Everest Hostel", "room": "A-101", "status": "Confirmed"},
         {"hostel": "Himalaya Hostel", "room": "B-202", "status": "Pending"}
     ]
-    return render_template('my_requests.html', bookings=bookings)
+    return render_template('rules.html', bookings=bookings)
 
 @student_bp.route('/profile')
 def profile():

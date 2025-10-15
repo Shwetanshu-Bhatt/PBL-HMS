@@ -1,0 +1,55 @@
+{% extends "student_dashboard.html" %}
+
+{% block title %}Hostel Rules{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rules.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Hostel Rules and Regulations</h1>
+    <p>Welcome, {{ student.name if student else "Student" }}</p>
+</header>
+
+<section class="rules-section">
+    <h2>General Conduct</h2>
+    <ul>
+        <li>All residents must maintain discipline and decorum within hostel premises.</li>
+        <li>Ragging in any form is strictly prohibited and will lead to immediate expulsion.</li>
+        <li>Silence must be maintained in study areas and corridors after 10 PM.</li>
+    </ul>
+
+    <h2>Room and Cleanliness</h2>
+    <ul>
+        <li>Rooms must be kept clean and tidy at all times.</li>
+        <li>Students are responsible for maintaining furniture and electrical fittings in their rooms.</li>
+        <li>Cooking inside rooms is not allowed unless permitted by hostel authorities.</li>
+    </ul>
+
+    <h2>Attendance and Visitors</h2>
+    <ul>
+        <li>Residents must return to the hostel before the designated curfew time (10 PM).</li>
+        <li>Visitors are allowed only during visiting hours and must sign in at the hostel gate.</li>
+        <li>Overnight stays of outsiders are strictly prohibited.</li>
+    </ul>
+
+    <h2>Prohibited Activities</h2>
+    <ul>
+        <li>Smoking, alcohol consumption, or drug use inside hostel premises is strictly forbidden.</li>
+        <li>No loud music or parties are allowed without prior permission.</li>
+        <li>Damage to hostel property will result in fines or disciplinary action.</li>
+    </ul>
+
+    <h2>Disciplinary Actions</h2>
+    <ul>
+        <li>Violations of hostel rules may result in suspension, expulsion, or fines.</li>
+        <li>Repeated misconduct will be reported to university authorities.</li>
+    </ul>
+
+    <p class="note">
+        These rules are designed to ensure a safe, clean, and respectful living environment for all residents.
+        Please read and follow them carefully.
+    </p>
+</section>
+{% endblock %}

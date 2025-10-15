@@ -1,4 +1,6 @@
-/* ---------- Full layout ---------- */
+/* student.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 html, body {
     height: 100%;
     margin: 0;
@@ -6,7 +8,6 @@ html, body {
     background-color: #f0f2f5;
 }
 
-/* ---------- Dashboard Container ---------- */
 .dashboard-container {
     display: flex;
     min-height: 100vh;
@@ -17,7 +18,9 @@ html, body {
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-    width: 240px;
+    position: fixed;
+    min-height: 100vh;
+    width: 200px;
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: 30px 15px;
@@ -66,6 +69,7 @@ html, body {
 
 /* ---------- Main Content ---------- */
 .main-content {
+    margin-left: 220px;
     flex-grow: 1;
     background: rgba(255, 255, 255, 0.95);
     padding: 40px;
