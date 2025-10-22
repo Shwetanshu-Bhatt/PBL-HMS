@@ -94,6 +94,34 @@ html, body {
 .login-form-container button:hover {
     background-color: #0b7df7;
 }
+.flash-message {
+  display: none; /* hidden by default */
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flash-message.success,
+.flash-message.danger,
+.flash-message.info {
+  display: block; /* show only when class is applied */
+}
+
+.flash-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-message.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.flash-message.info {
+  background-color: #cce5ff;
+  color: #004085;
+}
 
 /* Responsive fix */
 @media (max-width: 900px) {

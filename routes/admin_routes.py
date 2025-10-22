@@ -26,3 +26,4 @@ def logs():
 # @admin_bp.route('/logs')
 # def logs():
 #     return render_template('logs.html', logs=logs)
+

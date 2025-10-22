@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hostel Management Login</title>
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='images/favicon.jpg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -20,9 +21,17 @@
             <span data-type="admin">Admin</span>
         </div>
 
+        <!-- Show Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
         <!-- Login Form -->
         <form action="{{ url_for('auth.login') }}" method="POST" id="loginForm">
-            <!-- Hidden input for user type -->
             <input type="hidden" id="hiddenUserType" name="user_type" value="student">
 
             <label for="username">Username</label>
@@ -34,9 +43,8 @@
             <button type="submit">Login</button>
         </form>
 
-        <!-- Signup Link -->
         <p class="signup-text">
-            Don't have an account? <a href="{{ url_for('auth.signup') }}">SignUp</a>
+            Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign Up</a>
         </p>
     </div>
 </div>
@@ -51,12 +59,9 @@ function moveSlider(span) {
     const parentRect = span.parentElement.getBoundingClientRect();
     slider.style.width = rect.width + "px";
     slider.style.left = (rect.left - parentRect.left) + "px";
-
-    // Update hidden input
     hiddenInput.value = span.dataset.type;
 }
 
-// Initialize
 const activeSpan = document.querySelector('.user-type-slider span.active');
 moveSlider(activeSpan);
 
